@@ -5,8 +5,8 @@ public class Player : MonoBehaviour
     public float thrustForce = 5f;
     public float rotationSpeed = 10f;
 
-	private Rigidbody _rigid;
-
+    private Rigidbody _rigid;
+    public GameObject gun, bulletPrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,6 +21,11 @@ public class Player : MonoBehaviour
 	float thrust = Input.GetAxis("Rotation") * Time.deltaTime;
 	Vector3 thrustDirection = transform.right;
 	_rigid.AddForce(thrustDirection * thrust * thrustForce);
-	transform.Rotate(Vector3.forward, -rotation * rotationSpeed);	
+	transform.Rotate(Vector3.forward, -rotation * rotationSpeed);
+	if (Input.GetKeyDown(KeyCode.Space)){
+		GameObject bullet = Instantiate(bulletPrefab, gun.transform.position, Quaternion.identity);
+		Bullet balaScript = bullet.GetComponent<Bullet>();
+		balaScript.targetVector = transform.right;
+	}
     }
 }
