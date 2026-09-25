@@ -28,4 +28,10 @@ public class Player : MonoBehaviour
 		balaScript.targetVector = transform.right;
 	}
     }
+    private void OnCollisionEnter(Collision collision){
+	
+    }
+    private void OnTriggerEnter(Collider collision){
+	    SceneManager.LoadScene(SceneManager.getActiveScene().name);
+    }
 }
