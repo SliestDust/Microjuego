@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Bullet : MonoBehaviour
 {
 	public float speed = 10f;
@@ -18,8 +18,18 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision){
 	if(collision.gameObject.CompareTag("Enemy")){
+		IncreaseScore();
 		Destroy(collision.gameObject);
 		Destroy(gameObject);
 	}
     }
+	private void IncreaseScore(){
+		Player.score++;
+		Debug.Log(Player.score);
+		UpdateScoreText();
+	}
+	private void UpdateScoreText(){
+		GameObject go = GameObject.FindGameObjectWithTag("UI");
+		go.GetComponent<Text>().text = "Puntos : " + Player.score;
+	}
 }

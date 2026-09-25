@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     private Rigidbody _rigid;
     public GameObject gun, bulletPrefab;
 
+    public static int score = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collision){
 	    if(collision.gameObject.tag == "Enemy"){
+		    score = 0;
 		    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	    } else{
 		    Debug.Log("He colisionado con otro...");
