@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -32,6 +33,10 @@ public class Player : MonoBehaviour
 	
     }
     private void OnTriggerEnter(Collider collision){
-	    SceneManager.LoadScene(SceneManager.getActiveScene().name);
+	    if(collision.gameObject.tag == "Enemy"){
+		    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+	    } else{
+		    Debug.Log("He colisionado con otro...");
+	    }
     }
 }
