@@ -12,7 +12,7 @@ La nave es el personaje con el que jugaremos, tiene controles de tanque y puede 
 ## Balas
 Son disparadas por la nave al pulsar la tecla Espacio, destruyen asteroides otorgandote puntuación.
 ## Asteroides
-El único enemigo del juego, si tocan tu nave se reiniciará tu partida, si una bala colisiona con ellos aumentará tu puntuación en 1. Se mueven con el motor de gravedad de unity aunque con la gravedad reducida a -6 para tener más tiempo para reaccionar.
+El único enemigo del juego, si tocan tu nave se reiniciará tu partida, si una bala colisiona con ellos aumentará tu puntuación en 1. Se mueven con el motor de gravedad de unity aunque con la gravedad reducida a -6 para tener más tiempo para reaccionar. La primera vez que se les golpea se dividen en más pequeños.
 ## UI
 Consiste de un texto que te indica tu puntuación y un botón que pausa y despausa el juego, esta misma acción se puede realizar con la tecla Escape. Mientras el juego este pausado no se podrá relizar ninguna acción y aparecerá un texto diciendo "PAUSADO".
 # Escenas
@@ -30,7 +30,7 @@ Se asocia a las balas cuando se instancia, tiene como funciones:
 - Deactivate: se usa para desactivar las balas para que vuelvan a la pool
 - Update: donde se mueven las balas y se llama a deactivate una vez haya pasado el tiempo limite de la bala
 - IncreaseScore: Aumenta la puntuación y actualiza el texto
-- OnCollisionEnter: si ha chocado con un asteroide destruye el asteroide y llama a Deactivate
+- OnCollisionEnter: si ha chocado con un asteroide destruye el asteroide, si es la primera vez que lo destruye genera dos asteroides más pequeños y los empuja perpendiculares al disparo, despues llama a Deactivate
 ## EnemySpawner
 Script que se encarga de instanciar los asteroide cuando ha pasado suficiente tiempo instancia y tambien se encarga de destruirlos un tiempo despues.
 ## ObjectPool
