@@ -2,12 +2,13 @@
 Este juego se basa en sobrevivir con tu nave a una cantidad siempre creciente de asteroides
 # Game Loop
 El objetivo del juego es sobrevivir el máximo tiempo posible, destruyendo el mayor número de asteroides para aumentar tu puntuación. Cuanto más tiempo sobrevivas más difícil se volverá el juego al aumentar la cantidad de asteroides que aparecerán en la pantalla.
+
 Para sobrevivir el jugador usará su movimiento para esquivar situaciones peligrosas, disparará a los asteroides que no pueda esquivar y intentará generalmente chocar con ellos.
 # Assets y GameObjects
 ## La nave
 La nave es el personaje con el que jugaremos, tiene controles de tanque y puede disparar balas con el espacio para destruir a los asteroides. 
 ## Balas
-Son disparadas por la nave.
+Son disparadas por la nave al pulsar la tecla Espacio, destruyen asteroides otorgandote puntuación.
 ## Asteroides
 El único enemigo del juego, si tocan tu nave se reiniciará tu partida, si una bala colisiona con ellos aumentará tu puntuación en 1. Se mueven con el motor de gravedad de unity aunque con la gravedad reducida a -6 para tener más tiempo para reaccionar.
 ## UI
@@ -20,7 +21,7 @@ El jugador movera la nave a traves de controles de tanque, al estar en el espaci
 ## Disparo
 El jugador puede disparar balas que destruiran a los asteroides consiguiendo puntos.
 ## Perder
-El jugador perderá cuando se choque contra un asteroide, reiniciando sus puntos.
+El jugador perderá cuando se choque contra un asteroide, reiniciando sus puntos y el estado de la partida.
 # Scripts
 ## Bullet
 Se asocia a las balas cuando se instancia, tiene como funciones:
@@ -29,8 +30,7 @@ Se asocia a las balas cuando se instancia, tiene como funciones:
 - IncreaseScore: Aumenta la puntuación y actualiza el texto
 - OnCollisionEnter: si ha chocado con un asteroide destruye el asteroide y llama a Deactivate
 ## EnemySpawner
-Script que se encarga de instanciar los meteoritos, tiene como funciones:
-- Update: si ha pasado suficiente tiempo instancia un asteroide y lo destruye un tiempo despues.
+Script que se encarga de instanciar los asteroide cuando ha pasado suficiente tiempo instancia y tambien se encarga de destruirlos un tiempo despues.
 ## ObjectPool
 Script que se encarga de gestionar la pool de balas
 ## Pause
