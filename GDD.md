@@ -1,4 +1,6 @@
 # Resumen
+<img width="2560" height="1440" alt="image" src="https://github.com/user-attachments/assets/c3fb8b7a-12b3-4f6a-ac37-b8e3ebdea23d" />
+
 Este juego se basa en sobrevivir con tu nave a una cantidad siempre creciente de asteroides
 # Game Loop
 El objetivo del juego es sobrevivir el máximo tiempo posible, destruyendo el mayor número de asteroides para aumentar tu puntuación. Cuanto más tiempo sobrevivas más difícil se volverá el juego al aumentar la cantidad de asteroides que aparecerán en la pantalla.
