@@ -1,7 +1,8 @@
 # Resumen
 Este juego se basa en sobrevivir con tu nave a una cantidad siempre creciente de asteroides
 # Game Loop
-El objetivo del juego es sobrevivir el máximo tiempo posible, destruyendo el mayor número de asteroides para aumentar tu puntuación. Cuanto más tiempo sobrevivas más difícil se volverá el juego al aumentar la cantidad de asteroides que aparecerán en la pantalla. Para sobrevivir el jugador usará su movimiento para esquivar situaciones peligrosas, disparará a los asteroides que no pueda esquivar y intentará generalmente chocar con ellos.
+El objetivo del juego es sobrevivir el máximo tiempo posible, destruyendo el mayor número de asteroides para aumentar tu puntuación. Cuanto más tiempo sobrevivas más difícil se volverá el juego al aumentar la cantidad de asteroides que aparecerán en la pantalla.
+Para sobrevivir el jugador usará su movimiento para esquivar situaciones peligrosas, disparará a los asteroides que no pueda esquivar y intentará generalmente chocar con ellos.
 # Assets y GameObjects
 ## La nave
 La nave es el personaje con el que jugaremos, tiene controles de tanque y puede disparar balas con el espacio para destruir a los asteroides. 
