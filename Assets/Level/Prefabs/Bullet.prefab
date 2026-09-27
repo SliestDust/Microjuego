@@ -109,6 +109,8 @@ MonoBehaviour:
   speed: 10
   maxLifetime: 2
   targetVector: {x: 1, y: 0, z: 0}
+  fuerza: 50
+  asteroidPrefab: {fileID: 9200695337942318949, guid: 8c14ccfb99e27916db9e35553977993d, type: 3}
 --- !u!65 &4823619936032323909
 BoxCollider:
   m_ObjectHideFlags: 0

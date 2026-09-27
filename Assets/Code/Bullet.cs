@@ -7,7 +7,12 @@ public class Bullet : MonoBehaviour
 	public float speed = 10f;
 	public float maxLifetime = 3f;
 	public Vector3 targetVector;
-	public EnemySpawner enemySpawner;
+	public float fuerza = 500f;
+	public GameObject asteroidPrefab;
+	private GameObject meteor;
+	private Vector3 media;
+	private Vector3 pendiente;
+
   //º      private IEnumerator corutina;
 	private float time = 0f;
 	// Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -33,9 +38,17 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision){
 	if(collision.gameObject.CompareTag("Enemy")){
 		IncreaseScore();
-		//if(collision.gameObject.transform.scale.x > 0.1){
-		//	enemySpawner.Spawn(collision.gameObject.transform.position, Quaternion.identity, 0);
-		//}
+		if(collision.gameObject.transform.localScale.x > 0.3){
+			pendiente = new Vector3(-gameObject.transform.position.y + collision.gameObject.transform.position.y,-gameObject.transform.position.x + collision.gameObject.transform.position.x, 0);
+			media =   (gameObject.transform.position + collision.gameObject.transform.position)/2;
+			pendiente.Normalize();
+			meteor = Instantiate(asteroidPrefab, media - pendiente*1, Quaternion.identity);
+			meteor.transform.localScale = new Vector3(0.2f,0.2f,0);
+			meteor.GetComponent<Rigidbody>().AddForce(-pendiente * fuerza);
+			meteor = Instantiate(asteroidPrefab, media + pendiente*1, Quaternion.identity);
+			meteor.transform.localScale = new Vector3(0.2f,0.2f,0);
+			meteor.GetComponent<Rigidbody>().AddForce(pendiente * fuerza);
+		}
 		Destroy(collision.gameObject);
 		time = 0f;
 		gameObject.SetActive(false);
